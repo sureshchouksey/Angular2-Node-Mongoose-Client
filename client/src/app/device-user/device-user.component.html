@@ -1,0 +1,46 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card">
+  <h4 class="card-header">Device Register</h4>
+  <div class="card-block">
+    <form [formGroup]="deviceRegisterForm" (ngSubmit)="register()">
+      <div class="input-group" [ngClass]="setClassUsername()">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input class="form-control" type="text" name="username" formControlName="username" placeholder="Username" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassApiKey()">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input class="form-control" type="text" name="apiKey" formControlName="apiKey" placeholder="Api Key">
+      </div>
+      <div class="input-group" [ngClass]="setClassRegistrationToken()">
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        <input class="form-control" type="text" name="registrationToken" formControlName="registrationToken" placeholder="Registration Token">
+      </div>
+      <div class="input-group" [ngClass]="setClassDeviceId()">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input class="form-control" type="text" name="deviceId" formControlName="deviceId" placeholder="DeviceId" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassClientId()">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input class="form-control" type="text" name="clientId" formControlName="clientId" placeholder="ClientId">
+      </div>
+      <div class="input-group" [ngClass]="setClassPackageName()">
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        <input class="form-control" type="text" name="packageName" formControlName="packageName" placeholder="Package Name">
+      </div>
+      <div class="input-group" [ngClass]="setClassGroup()">
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        <input class="form-control" type="text" name="topic" formControlName="topic" placeholder="Topic">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
+        <select class="form-control" name="platform" formControlName="platform">
+          <option value="" selected disabled>Platform</option>
+          <option value="android">Android</option>
+          <option value="ios">IOS</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!deviceRegisterForm.valid"><i class="fa fa-user-plus"></i> Register</button>
+    </form>
+  </div>
+</div>

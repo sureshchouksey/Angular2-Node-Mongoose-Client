@@ -1,0 +1,52 @@
+<app-loading [condition]="isLoading"></app-loading>
+<app-toast [message]="toast.message"></app-toast>
+<div class="card">
+  <h4 class="card-header">Android Push Notification to Single Device</h4>
+  <div class="card-block">
+    <form [formGroup]="notificationForm" (ngSubmit)="notification()">
+      <div class="input-group" [ngClass]="setClassUsername()">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input class="form-control" type="text" name="username" formControlName="username" placeholder="Username" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassEmail()">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input class="form-control" type="text" name="messageTitle" formControlName="messageTitle" placeholder="Message Title">
+      </div>
+      <div class="input-group" [ngClass]="setClassPassword()">
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        <input class="form-control" type="text" name="messageBody" formControlName="messageBody" placeholder="Message Body">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
+        <select class="form-control" name="packageName" formControlName="packageName">
+          <option value="" selected disabled>PackageName</option>
+          <option value="opusNeo">opusNeo</option>
+          <option value="opusNeoTwo">opusNeoTwo</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!notificationForm.valid"><i class="fa fa-user-plus"></i> Send Notification</button>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <h4 class="card-header">Apple Push Notification to Single Device</h4>
+  <div class="card-block">
+    <form [formGroup]="apnNotificationForm" (ngSubmit)="apnNotification()">
+      <div class="input-group" [ngClass]="setClassDeviceToken()">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input class="form-control" type="text" name="deviceToken" formControlName="deviceToken" placeholder="Device Token" autofocus>
+      </div>
+      <div class="input-group" [ngClass]="setClassApnMessageTitle()">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input class="form-control" type="text" name="apnMessageTitle" formControlName="apnMessageTitle" placeholder="APN Message Title">
+      </div>
+      <div class="input-group" [ngClass]="setClassApnMessageBody()">
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        <input class="form-control" type="text" name="apnMessageBody" formControlName="apnMessageBody" placeholder="APN Message Body">
+      </div>
+      
+      <button class="btn btn-primary" type="submit" [disabled]="!apnNotificationForm.valid"><i class="fa fa-user-plus"></i> Send Notification</button>
+    </form>
+  </div>
+</div>
